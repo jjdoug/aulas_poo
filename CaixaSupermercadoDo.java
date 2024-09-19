@@ -5,25 +5,24 @@ public class CaixaSupermercadoDo {
 		
 	Scanner in = new Scanner(System.in);
 	
-	System.out.println("Cód.      Preço "+
-	"\n 1   ---  R$0.50"+
-	"\n 2   ---  R$1,00"+
-	"\n 3   ---  R$4,00"+
-	"\n 5   ---  R$7,00"+
-	"\n 9   ---  R$8,00");
-	
 	int codigo = -1;
 	int quant = 0;
 	double preco_final = 0;
 	
 	do {
-	System.out.print("Código: ");
-	codigo = in.nextInt();
-	System.out.print("Quantidade: ");
-	quant = in.nextInt();
-
-	if(codigo == 0){
-		System.out.print("Fim do programa");
+	
+	if(codigo != -1){
+	    System.out.print("Quantidade: ");
+	    quant = in.nextInt();
+	}
+	
+	if(codigo == -1){
+	    System.out.println("Cód.      Preço "+
+	    "\n 1   ---  R$0.50"+
+	    "\n 2   ---  R$1,00"+
+	    "\n 3   ---  R$4,00"+
+	    "\n 5   ---  R$7,00"+
+	    "\n 9   ---  R$8,00");
 	}
 	else if(codigo == 1){
 		preco_final += quant*0.50;
@@ -43,6 +42,10 @@ public class CaixaSupermercadoDo {
 	else{
 	    System.out.println("Código inválido! Tente novamente.");
 	}
+	
+	System.out.print("Código: ");
+	codigo = in.nextInt();
+    
 	} while(codigo!=0);
 	
 	System.out.print("Valor a ser pago: R$" + preco_final);
